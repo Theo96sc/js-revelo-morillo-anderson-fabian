@@ -37,10 +37,10 @@ console.log(typeof hermana, 'hermana');
 // Truty
 // Falsy
 
-if(-1) {
-    console.log("truty")
+if (-1) {
+    console.log(" -1 truty")
 } else {
-    console.log("Falsy")
+    console.log(" -1 Falsy")
 }
 
 // JSON
@@ -48,26 +48,26 @@ if(-1) {
 const anderson = {
     "nombre": 'Anderson',
     'apellido': "Revelo",
-    edad : 10,
-    casado : false,
-    hijos : null,
-    hermana : {
-        nombre : "Milena"
+    edad: 10,
+    casado: false,
+    hijos: null,
+    hermana: {
+        nombre: "Milena"
     },
-    mascotas : [
+    mascotas: [
         {
-            nombre : "Vito"
+            nombre: "Vito"
         }
     ]
 }
 
 console.log(anderson.nombre);
 console.log(anderson.hermana);
-console.log(anderson.mascotas[0].nombre);
+console.log('leer datos :...', anderson.mascotas[0].nombre);
 
 // agregar otro objeto
 anderson.sueldo = 1.2;
-anderson["deudas"]= 1000;
+anderson["deudas"] = 1000;
 
 console.log(anderson);
 // eliminar propiedades en un objeto JS
