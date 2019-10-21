@@ -1,4 +1,4 @@
-const arreglo = [1,2,3,4,5,6,7,8,9,10];
+const arreglo = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 /*
 for (const i in arreglo){ // muestra Indices
     console.log('I:', i);
@@ -12,10 +12,10 @@ for (const i of arreglo){ // muestra Valores
 const respuestaForEach = arreglo
     .forEach(
         function (valorActual, index, array) {
-            console.log('valor',valorActual);
+            console.log('valor', valorActual);
 
-           // console.log('indice',indiceActual)
-           // console.log('arreglo',arreglo)
+            // console.log('indice',indiceActual)
+            // console.log('arreglo',arreglo)
         });
 
 /*
@@ -50,14 +50,14 @@ const respuestaEvery = arreglo.every(
     }
 ); // true o false
 
-const map2 = arreglo.map(valor=> valor + 5);
-console.log('forEach',respuestaForEach);
-console.log('MAP',respuestaMap);
-console.log('MAP2',map2);
-console.log('original',arreglo);
-console.log('filter',respuestaFilter);
-console.log('some',respuestaSome);
-console.log('every',respuestaEvery);
+const map2 = arreglo.map(valor => valor + 5);
+console.log('forEach', respuestaForEach);
+console.log('MAP', respuestaMap);
+console.log('MAP2', map2);
+console.log('original', arreglo);
+console.log('filter', respuestaFilter);
+console.log('some', respuestaSome);
+console.log('every', respuestaEvery);
 
 //Para todos los valores del arreglo sumar 5
 
@@ -66,9 +66,45 @@ console.log('every',respuestaEvery);
 
 
 const respuestaMenoresADiez = arreglo.map(
-    value => (value/2)+7
+    value => (value / 2) + 7
 ).filter(
     value => value < 10
 );
 
-console.log('xxxxxxxxx',respuestaMenoresADiez); 
+console.log('xxxxxxxxx', respuestaMenoresADiez);
+
+// operdor de busqueda
+
+const respuestaFind = arreglo.find(
+    (valor, indice, arreglo) => {
+        return valor === 8;
+    }
+);
+
+const respuestaFindIndex = arreglo.findIndex(
+    (valor) => {
+        return valor === 8;
+    }
+);
+
+console.log('respuestaFind', respuestaFind);
+console.log('FindIndex', respuestaFindIndex);
+
+
+// quieri la suma de todos los valores de un arreglo
+
+const respuestaReduce = arreglo.reduce(
+    (valorInicial, valorActual, indice, array) => {
+        return valorInicial + valorActual;
+
+    }, 0);
+
+console.log(respuestaReduce);
+
+
+const hits = arreglo.reduce(
+    (valorInicial, valorActual)=>{
+        return valorInicial- valorActual;
+    },100
+);
+console.log(hits);
