@@ -34,6 +34,7 @@ const respuestaMap = arreglo
 
 const respuestaFilter = arreglo.filter(
     value => {
+        console.log('cumple', value > 7);
         return value > 7
     }// devolver -> Expresion -> truty y falsy
 ); // Nuevo arreglo
