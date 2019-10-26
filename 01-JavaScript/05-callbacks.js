@@ -67,11 +67,12 @@ console.log(vectorMap);
 
 
 // filter
+
 function filter(arreglo, funcion) {
     const arregloFiltrado = [];
     for (let indiceInicial = 0; indiceInicial < arreglo.length; indiceInicial++) {
-        if (funcion== true) {
-            arregloFiltrado.push(funcion(arreglo[indiceInicial], indiceInicial, arreglo));
+        if (funcion(arreglo[indiceInicial])) {
+            arregloFiltrado.push(arreglo[indiceInicial]);
         }
 
     }
@@ -81,10 +82,56 @@ function filter(arreglo, funcion) {
 
 const arregloFiltrado = filter([1, 2, 3, 4, 5, 6, 7],
     (valor) => {
-        return valor > 2 ;
+        return valor > 3;
     });
 
 console.log(arregloFiltrado);
+
+
+function some(arreglo, funcion) {
+    let existeElemento = false;
+    for (let indice = 0; indice < arreglo.length; indice++) {
+        if (funcion(arreglo[indice])) {
+            existeElemento = true;
+            //return existeElemento;
+        }
+    }
+    return existeElemento;
+}
+
+const respuestaSome = some([1, 2, 3, 4, 5, 6, 7, 8],
+    (value) => {
+        return value > 8;
+    });
+
+console.log(respuestaSome);
+
+function every(arreglo, funcion) {
+    const numeroDeAciertos = arreglo.length;
+    console.log('size del arreglo', numeroDeAciertos);
+    contador = 0;
+    for (let indice = 0; indice < arreglo.length; indice++) {
+        if (funcion(arreglo[indice])) {
+            contador++;
+        }
+
+    }
+    return contador === numeroDeAciertos ? true : false;
+
+}
+
+const respuestaEvery = every([6, 3, 7, 5],
+    (value) => {
+        return (value <= 7 && value > 1);
+    });
+
+console.log('respuesta Every ', respuestaEvery);
+
+
+
+
+
+
 
 
 
