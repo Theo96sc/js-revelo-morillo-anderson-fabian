@@ -1,5 +1,7 @@
 // que son los callbacks...
 // en los parametros de una funcion no le interesa que es dicho paramtro
+
+
 function calculo(num_uno, num_dos, funcionCalculo) {
     const total = num_uno + num_dos;
     return funcionCalculo(num_uno, num_dos, total);
