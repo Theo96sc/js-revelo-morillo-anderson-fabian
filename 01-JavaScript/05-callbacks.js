@@ -36,12 +36,12 @@ function forEachLocal(arreglo, funcion) {
     }
 }
 
-arregloNumeros = [1, 2, 3, 4, 5];
+
 
 forEachLocal(
     [1, 2, 3, 4, 5],
     (valorActual, indice, arreglo) => {
-        //console.log('actual', valorActual)
+        console.log('actual', valorActual)
     }
 );
 
@@ -51,7 +51,7 @@ function map(arreglo, funcion) {
     const arreglo2 = [];
 
     for (let indiceInicial = 0; indiceInicial < arreglo.length; indiceInicial++) {
-        arreglo2.push(funcion(arreglo[indiceInicial], indiceInicial, arreglo));
+        arreglo2.push(funcion(arreglo[indiceInicial]));
     }
 
     return arreglo2;
@@ -63,7 +63,7 @@ vectorMap = map([1, 2, 3, 4, 5, 6],
         return valor + 5;
     });
 
-console.log(vectorMap);
+console.log('Map: ',vectorMap);
 
 
 // filter
@@ -85,7 +85,7 @@ const arregloFiltrado = filter([1, 2, 3, 4, 5, 6, 7],
         return valor > 3;
     });
 
-console.log(arregloFiltrado);
+console.log('Filter: ',arregloFiltrado);
 
 
 function some(arreglo, funcion) {
@@ -104,11 +104,11 @@ const respuestaSome = some([1, 2, 3, 4, 5, 6, 7, 8],
         return value > 8;
     });
 
-console.log(respuestaSome);
+console.log('Some: ',respuestaSome);
 
 function every(arreglo, funcion) {
     const numeroDeAciertos = arreglo.length;
-    console.log('size del arreglo', numeroDeAciertos);
+  //  console.log('size del arreglo', numeroDeAciertos);
     contador = 0;
     for (let indice = 0; indice < arreglo.length; indice++) {
         if (funcion(arreglo[indice])) {
@@ -129,13 +129,61 @@ console.log('respuesta Every ', respuestaEvery);
 
 
 
+function find(arreglo, funcion) {
+   let  elementoEncontrado;
+    for (let indice = 0 ; indice < arreglo.length ; indice ++ ){
+        if(funcion(arreglo[indice], indice, arreglo)){
+            elementoEncontrado = arreglo[indice];
+        };
+    }
+    return elementoEncontrado;
+}
+
+const respuestaFind = find([1,2,3,4,5,6,7],
+    (valor)=> {
+        return valor === 4;
+    });
+
+console.log('Find',respuestaFind);
+
+
+function findIndex(arreglo, funcion) {
+    let  elementoEncontrado;
+
+    for (let indice = 0 ; indice < arreglo.length ; indice ++ ){
+        if(funcion(arreglo[indice], indice, arreglo)){
+            elementoEncontrado = arreglo[indice];
+        };
+    }
+    return arreglo.indexOf(elementoEncontrado);
+}
+
+const respuestaFindIndex = findIndex([1,2,3,4,5,6,7],
+    (valor)=> {
+        return valor === 4;
+    });
+
+console.log('FindIndex',respuestaFindIndex);
 
 
 
 
+function reduce(arreglo, funcion, acumulador){
+
+      for (let indice=0; indice <arreglo.length; indice ++){
+        acumulador = funcion(acumulador, arreglo[indice])
+
+    }
+    return acumulador;
+}
 
 
+const respuestaReduce = reduce([1,2,3],
+    (acumulador, valor)=> {
+        return acumulador + valor;
+    },100);
 
+console.log('Reduce : ',respuestaReduce);
 
 
 

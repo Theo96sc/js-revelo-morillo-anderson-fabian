@@ -80,7 +80,7 @@ const respuestaFind = arreglo.find(
     (valor, indice, arreglo) => {
         return valor === 8;
     }
-);
+); // devuelve el elemento
 
 const respuestaFindIndex = arreglo.findIndex(
     (valor) => {
@@ -100,7 +100,7 @@ const respuestaReduce = arreglo.reduce(
 
     }, 0);
 
-console.log(respuestaReduce);
+console.log('REDUCE',respuestaReduce);
 
 
 const hits = arreglo.reduce(
