@@ -1,10 +1,21 @@
- <h1>Titulo</h1>
-  <img src="https://stackify.com/wp-content/uploads/2018/07/Node.js-profilers-881x441.png"
+ <h1>{{titulo}}</h1>
+ <!-- {{}} MOSTRAR EN EL HTML-->
+ <!-- acceder a metodos y propiedades de la clase, solo sirve para mostrar algo dentro de una etiqueta-->
+  <img [src]="imagen"
        alt=""
-       width="200px"
+       [width]="ancho"
        height="200px">
- <p>Texto</p>
+
+
+ <p>{{textoImagen}}</p>
+
+ <!--  EVENT BINDING -->
+ <!--  [evento]= "miFuncion($event)" -> Evento -->
  <button
-   (click)="saludar()"
+   (mouseenter)="aumentarSueldo()"
+   (click)="aumentarTamanio()"
  >
-   HOLA</button>
+   {{textoBoton}}</button>
+
+ <!-- Property Binding (Enlace a las propedades)-->
+ <!-- [atributo]= "valor -> Atributos" -->
