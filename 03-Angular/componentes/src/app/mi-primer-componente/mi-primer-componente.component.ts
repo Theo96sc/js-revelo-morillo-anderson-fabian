@@ -19,7 +19,7 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   @Input() imagen: string;
   @Input() textoImagen: string;
   @Input() textoBoton: string;
-  @Output() cambioSueldo = new EventEmitter<string>(); // evento
+  @Output() cambioSueldo = new EventEmitter(); // evento
 
   // Para que el papa escuche
 
@@ -52,10 +52,9 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   }
 
   aumentarTamanio() {
-    this.ancho = (Number(this.ancho) + 10).toString();
+    this.ancho = this.ancho+ 10;
     console.log(this.ancho);
   }
-
   // cuando el suuario da click en el boton , quiero sque saumento el tamalo del ancho y del largo
 
 }
