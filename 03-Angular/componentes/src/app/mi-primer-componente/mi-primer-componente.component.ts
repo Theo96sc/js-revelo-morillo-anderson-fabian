@@ -19,7 +19,20 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   @Input() imagen: string;
   @Input() textoImagen: string;
   @Input() textoBoton: string;
+
+  @Input() numUno: number;
+  @Input() numDos: number;
+
+
   @Output() cambioSueldo = new EventEmitter(); // evento
+  @Output() enviarNumerosAOperaciones = new EventEmitter();
+  @Output() mostrarResultados = new EventEmitter();
+
+
+  suma = 0;
+  resta = 0;
+  multiplicacion = 0;
+  division = 0;
 
   // Para que el papa escuche
 
@@ -52,9 +65,38 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   }
 
   aumentarTamanio() {
-    this.ancho = this.ancho+ 10;
+    this.ancho = this.ancho + 10;
     console.log(this.ancho);
   }
+
   // cuando el suuario da click en el boton , quiero sque saumento el tamalo del ancho y del largo
+
+  escucharNum(event) {
+    console.log(event.srcElement.value);
+    this.numUno = Number(event.srcElement.value);
+    //this.enviarNumeroAOperaciones.emit(this.numUno);
+    this.calcular();
+  }
+
+  escucharNum2(event) {
+
+    this.numDos = Number(event.srcElement.value);
+    console.log(this.numDos);
+    //this.enviarNumeroAOperaciones.emit(this.numDos);
+    this.calcular();
+  }
+
+  calcular() {
+    let num1 = Number(this.numUno);
+    let num2 = Number(this.numDos);
+
+    console.log(num1 + num2);
+    this.suma = num1 + num2;
+
+    this.resta = num1 - num2;
+    this.multiplicacion = num1 * num2;
+    this.division = num1 / num2;
+
+  }
 
 }

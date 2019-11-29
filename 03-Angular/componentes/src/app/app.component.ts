@@ -46,4 +46,9 @@ export class AppComponent {
   imprimirSueldo(sueldo: string) {
     console.log(sueldo);
   }
+
+  imprimirResultados(numeroUno, numeroDos){
+    let suma = numeroUno + numeroDos;
+    console.log('Suma:', suma);
+  }
 }

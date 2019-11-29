@@ -17,5 +17,25 @@
  >
    {{textoBoton}}</button>
 
+ <br>
+
+ <label >Ingrese numero uno:</label>
+<input type="text" (change)="escucharNum($event)"  >
+
+ <label >Ingrese numero dos:</label>
+ <input type="text" (change)="escucharNum2($event)" >
+
+ <button (click)="sumar()"  >Sumar
+ </button>
+
+ <p>
+Suma: {{suma}}
+   Resta: {{resta}}
+
+   Multiplicacion : {{multiplicacion}}
+   Division: {{division}}
+ </p>
+
+
  <!-- Property Binding (Enlace a las propedades)-->
- <!-- [atributo]= "valor -> Atributos" -->
+ <!-- ls -->
