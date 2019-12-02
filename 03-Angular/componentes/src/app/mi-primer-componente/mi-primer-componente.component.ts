@@ -25,7 +25,6 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
 
 
   @Output() cambioSueldo = new EventEmitter(); // evento
-  @Output() enviarNumerosAOperaciones = new EventEmitter();
   @Output() mostrarResultados = new EventEmitter();
 
 
@@ -61,7 +60,6 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   aumentarSueldo() {
     this.textoBoton = (Number(this.textoBoton) + 1).toString();
     this.cambioSueldo.emit(this.textoBoton);
-    // this.textoBoton = (+this.textoBoton + 1).toString() ;
   }
 
   aumentarTamanio() {
@@ -74,15 +72,15 @@ export class MiPrimerComponenteComponent implements OnInit, OnDestroy {
   escucharNum(event) {
     console.log(event.srcElement.value);
     this.numUno = Number(event.srcElement.value);
-    //this.enviarNumeroAOperaciones.emit(this.numUno);
+    if( typeof this.numUno !== 'number'){
+
+    }
     this.calcular();
   }
 
   escucharNum2(event) {
-
-    this.numDos = Number(event.srcElement.value);
     console.log(this.numDos);
-    //this.enviarNumeroAOperaciones.emit(this.numDos);
+    this.numDos = Number(event.srcElement.value);
     this.calcular();
   }
 
