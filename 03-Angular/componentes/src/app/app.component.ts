@@ -6,6 +6,10 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  fecha = new Date();
+  sueldo = 12.001;
+  universidad = 'Escuelap Politecnica Nacional';
+
   title = 'componentes';
   arregloObjetos = [
     {
@@ -45,5 +49,10 @@ export class AppComponent {
 
   imprimirSueldo(sueldo: string) {
     console.log(sueldo);
+  }
+
+  imprimirResultados(numeroUno, numeroDos){
+    let suma = numeroUno + numeroDos;
+    console.log('Suma:', suma);
   }
 }

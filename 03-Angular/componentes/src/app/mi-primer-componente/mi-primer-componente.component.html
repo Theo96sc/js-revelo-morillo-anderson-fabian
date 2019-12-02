@@ -1,21 +1,41 @@
- <h1>{{titulo}}</h1>
- <!-- {{}} MOSTRAR EN EL HTML-->
- <!-- acceder a metodos y propiedades de la clase, solo sirve para mostrar algo dentro de una etiqueta-->
-  <img [src]="imagen"
-       alt=""
-       [width]="ancho"
-       height="200px">
+<h1>{{titulo}}</h1>
+<!-- {{}} MOSTRAR EN EL HTML-->
+<!-- acceder a metodos y propiedades de la clase, solo sirve para mostrar algo dentro de una etiqueta-->
+<img [src]="imagen"
+     alt=""
+     [width]="ancho"
+     [height]="ancho">
 
 
- <p>{{textoImagen}}</p>
+<p>{{textoImagen}}</p>
 
- <!--  EVENT BINDING -->
- <!--  [evento]= "miFuncion($event)" -> Evento -->
- <button
-   (mouseenter)="aumentarSueldo()"
-   (click)="aumentarTamanio()"
- >
-   {{textoBoton}}</button>
+<!--  EVENT BINDING -->
+<!--  [evento]= "miFuncion($event)" -> Evento -->
+<button
+  (mouseenter)="aumentarSueldo()"
+  (click)="aumentarTamanio()"
+>
+  {{textoBoton}}</button>
 
- <!-- Property Binding (Enlace a las propedades)-->
- <!-- [atributo]= "valor -> Atributos" -->
+<br>
+
+<label>Ingrese numero uno:</label>
+<input type="text" (change)="escucharNum($event)">
+
+<label>Ingrese numero dos:</label>
+<input type="text" (change)="escucharNum2($event)">
+
+<button >Sumar
+</button>
+
+<p>
+  Suma: {{suma}}</p>
+
+<p>Resta: {{resta}}</p>
+
+<p>Multiplicacion : {{multiplicacion}}</p>
+<p>Division: {{division}}</p>
+
+
+<!-- Property Binding (Enlace a las propedades)-->
+<!-- ls -->
