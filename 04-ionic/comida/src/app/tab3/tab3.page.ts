@@ -10,7 +10,10 @@ export class Tab3Page {
 
   usuario = {
     nombre: '',
-    apellido: '',
+    correo:'',
+    edad:0,
+    password: '',
+    confirmaPassword: ''
   };
 
   constructor() {}
