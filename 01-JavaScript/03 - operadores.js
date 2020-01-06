@@ -45,11 +45,11 @@ const respuestaSome = arreglo.some(
     }
 ); // true o false
 
-const respuestaEvery = arreglo.every(
-    value => {
-        return value > 1;
-    }
-); // true o false
+    const respuestaEvery = arreglo.every(
+        value => {
+            return value > 1;
+        }
+    ); // true o false
 
 const map2 = arreglo.map(valor => valor + 5);
 console.log('forEach', respuestaForEach);
@@ -92,7 +92,7 @@ console.log('respuestaFind', respuestaFind);
 console.log('FindIndex', respuestaFindIndex);
 
 
-// quieri la suma de todos los valores de un arreglo
+// se requiere la suma de todos los valores de un arreglo
 
 const respuestaReduce = arreglo.reduce(
     (valorInicial, valorActual, indice, array) => {

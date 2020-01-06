@@ -1,4 +1,4 @@
-<ion-menu contentId="my-content" side="start" menuId="first">
+<!-- <ion-menu contentId="my-content" side="start" menuId="first">
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
@@ -16,14 +16,70 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-
+-->
 
 
 <ion-content>
-  <ion-icon name="apps"></ion-icon>
 
 
+<ion-grid style="background-color: dodgerblue; ">
+  <ion-row >
+  
+      <ion-col size="2" style="padding-top: 15px;" >
+          <ion-icon name="menu" style="color: white;height: 23px;
+          width: 23px;"></ion-icon>
+      </ion-col>
+      <ion-col size=""  >
+        <h1 style="margin-top: 5px;color: white;"> Google <font size="4">Traductor</font></h1>
+        
+      </ion-col >  
 
+      <!--  <ion-col>
+          <h5 style="margin-top: 5px;color: white;"> Traductor</h5>
+      </ion-col>
+    -->
+  </ion-row>
+</ion-grid>
+
+      <ion-grid>
+<ion-row>
+    <ion-col size="5">
+        <ion-item>
+            <ion-label style="color: dodgerblue;">español</ion-label>
+            <ion-select style="color: dodgerblue;">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+    </ion-col>
+    <ion-col size="2">
+
+        <ion-icon name="swap" style="color:dodgerblue;width: 22px;
+        height: 22px;"></ion-icon>
+
+    </ion-col>
+    <ion-col size="5">
+        <ion-item>
+            <ion-label style="color: dodgerblue;">inglés</ion-label>
+            <ion-select  style="color: dodgerblue;">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+          </ion-item>
+    </ion-col>
+</ion-row>
+         
+               
+         
+
+
+      </ion-grid>
+      
+    
+      
+
+    
+   
 
 
 
@@ -31,11 +87,52 @@
     <ion-textarea placeholder="Toca para introducir texto"></ion-textarea>
   </ion-item>
 
+
   <ion-item>
-    <ion-icon name="camera" ></ion-icon>
-    <ion-icon name="create"></ion-icon>
-    <ion-icon name="microphone"></ion-icon>
-    <ion-icon name="mic"></ion-icon>
+<ion-grid style="align-content: center;">
+      <ion-row>
+        <ion-col size="3" >
+            <ion-icon name="camera" style=" color:darkblue; width: 22px;
+            height: 22px;"></ion-icon>
+            <p style="font-size: x-small;">
+              Cámara
+            </p>
+
+        </ion-col>
+        <ion-col size="3"  style="align-content: center;">
+            <ion-icon name="create" style="color:darkblue;width: 22px;
+            height: 22px;"></ion-icon>
+             <p style="font-size: x-small;align-self: auto;">
+                Escritura a mano
+              </p>
+        </ion-col>
+        <ion-col size="3" style="align-content: center;">
+            <ion-icon name="microphone" style="color:darkblue;width: 22px;
+            height: 22px;"></ion-icon>
+             <p style="font-size: x-small;">
+                Conversación
+              </p>
+        </ion-col>
+        <ion-col size="3" style="align-content: center;">
+            <ion-icon name="mic" style="color:darkblue;width: 22px;
+            height: 22px;"></ion-icon>
+            <p style="font-size:x-small;">
+                Voz
+              </p>
+
+        </ion-col>
+  
+      </ion-row>
+
+    </ion-grid>
+  </ion-item>  
+  <ion-item>
+    
+    
+   
+    
+   
+    
 
 
   </ion-item>

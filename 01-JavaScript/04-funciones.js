@@ -1,15 +1,15 @@
 // funucibes que no devukeven nada
 
-function imprimirMensaje(mensaje) {
-    if(typeof mensaje === 'number' || typeof mensaje === 'string'){
-        const impresion = `Mensaje ${mensaje} `;
-        console.log(impresion);
-        return impresion;
-    }else {
-        console.error('Error XD');
+    function imprimirMensaje(mensaje) {
+        if(typeof mensaje === 'number' || typeof mensaje === 'string'){
+            const impresion = `Mensaje ${mensaje} `;
+            console.log(impresion);
+            return impresion;
+        }else {
+            console.error('Error XD');
+        }
+        // los voids => undefined, osea que no tiene un return
     }
-    // los voids => undefined, osea que no tiene un return
-}
 
 imprimirMensaje();
 
