@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import { FILAS } from './constantes/numero-filas-por-tabla';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,12 @@ export class AppComponent implements OnInit {
   url = 'http://localhost:1337';
 
   usuarios = [];
+  FILAS = FILAS;
+
+  nombreFiltrado = '';
+  apellidoFiltrado = '';
+  correoFiltrado = '';
+  passwordFiltrado= '';
 
   constructor(private readonly _httpClient: HttpClient) {
   }
@@ -43,4 +50,21 @@ export class AppComponent implements OnInit {
   eliminar(usuario: any) {
   console.log('eliminando', usuario);
   }
+
+  usuarioFiltrado(){
+    return this.usuarios.filter(
+      
+      (usuario)=>{      
+       
+        return usuario.apellido.includes(this.apellidoFiltrado) 
+        && usuario.nombre.includes(this.nombreFiltrado)
+        && usuario.correo.includes(this.correoFiltrado)
+        && usuario.password.includes(this.passwordFiltrado);
+        
+        }
+       
+      
+    );
+  }
 }
+    
