@@ -35,4 +35,13 @@ export class UsuarioRestService {
     );
   }
 
+  eliminar(id:number): Observable<any>{
+    const urlBuscar = this.url + '/'+ id;
+    return this._httpClient
+    .delete(urlBuscar
+    );
+  }
+
+
+
 }

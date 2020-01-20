@@ -1,0 +1,20 @@
+<p>ruta-gestion-libros works!</p>
+
+<ul> <!-- Unordered List-->
+    <li>
+      <a [routerLink]="['buscar']">
+        buscar
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['editar',1]">
+        editar
+      </a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['crear']">crear</a>
+    </li>
+  
+  </ul>
+<router-outlet></router-outlet>
