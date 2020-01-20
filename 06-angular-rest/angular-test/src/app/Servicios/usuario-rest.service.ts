@@ -23,4 +23,16 @@ export class UsuarioRestService {
     );
   }
 
+  buscar(busqueda:string): Observable<any>{
+    let consulta = ''
+    if(busqueda){
+      consulta = '?nombre=' + busqueda;
+    }
+    const urlBuscar = this.url + consulta;
+    return this._httpClient
+    .get(
+      urlBuscar
+    );
+  }
+
 }

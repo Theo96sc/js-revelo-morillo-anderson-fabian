@@ -1,8 +1,22 @@
 
 <h1>{{title}}</h1>
 
+<h1>Gestion de Usuarios</h1>
+<span class="ui-float-label">
+  
+  <input id="float-input"
+         type="text"
+         size="30"
+         [(ngModel)]="busquedaUsuario"
+         pInputText> 
 
+         <label for="float-input">
+          Buscar por nombre
+        </label>
+    
+</span>
 
+<p-button label="Buscar" (onClick)="buscarUsuarioPorNombre()"></p-button>
 
 
 <p-table [value]="usuarioFiltrado()" 

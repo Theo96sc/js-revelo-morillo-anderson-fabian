@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   apellidoFiltrado = '';
   correoFiltrado = '';
   passwordFiltrado= '';
+  busquedaUsuario='';
 
   constructor(
     private readonly _httpClient: HttpClient,
@@ -113,6 +114,23 @@ editarUsuarioHTTP (id: number, datos){
 
   eliminar(usuario: any) {
   console.log('eliminando', usuario);
+  }
+
+  buscarUsuarioPorNombre(){
+    const busqueda$ = this._usuarioRestService
+    .buscar(this.busquedaUsuario);
+
+    busqueda$
+    .subscribe(
+      (usuarios)=>{
+        this.usuarios = usuarios;
+      },
+      (error)=>{
+          console.log(error);
+      }
+
+
+    )
   }
 
   usuarioFiltrado(){
