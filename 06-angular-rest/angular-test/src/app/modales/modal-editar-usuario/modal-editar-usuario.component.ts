@@ -15,16 +15,23 @@ export class ModalEditarUsuarioComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<ModalEditarUsuarioComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any | boolean,
 
   ) { }
 
   ngOnInit() {
-    console.log('datos en el modal', this.data);
-    this.nombre = this.data.usuario.nombre;
-    this.apellido = this.data.usuario.apellido;
-    this.correo = this.data.usuario.correo;
-    this.password = this.data.usuario.password;
+    if(!this.data){
+      console.log('Estamos creando');
+
+    }else{
+      console.log('estamos editando');
+      console.log('datos en el modal', this.data);
+      this.nombre = this.data.usuario.nombre;
+      this.apellido = this.data.usuario.apellido;
+      this.correo = this.data.usuario.correo;
+      this.password = this.data.usuario.password;
+    }
+    
   }
   cancelar(){
     this.dialogRef.close();

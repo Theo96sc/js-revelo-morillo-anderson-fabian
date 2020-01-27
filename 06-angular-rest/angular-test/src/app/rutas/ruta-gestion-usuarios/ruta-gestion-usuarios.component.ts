@@ -171,5 +171,50 @@ editarUsuarioHTTP (id: number, datos){
     );
   }
 
+  crearUsuarioHTTP(usuario:any){
+    const crear$ =this._usuarioRestService
+    .crear(usuario);
+
+    crear$
+    .subscribe(
+      (usuarioCreado)=>{
+        console.log('usuario a creado ', usuarioCreado);
+      },
+      (error)=>{
+        console.error('error', error);
+      }
+    )
+  }
+
+  crear(usuario: any){
+    console.log('creando', usuario);
+    const matDialogRefModalEditarUsuario= this._matDialog
+    .open(
+      ModalEditarUsuarioComponent,
+      {
+        width: '500px'
+      }
+    );
+    const respuestaDialog$ = matDialogRefModalEditarUsuario
+    .afterClosed();
+
+    respuestaDialog$
+    .subscribe(
+      (datos)=>{
+        console.log('datos', datos);
+
+        if(datos){
+          this.crearUsuarioHTTP(datos);
+          this.usuarios.unshift(datos);
+          
+        }
+      },
+      (error)=>{
+        console.error('error',error);  
+      }
+    )
+
+  }
+
 
 }

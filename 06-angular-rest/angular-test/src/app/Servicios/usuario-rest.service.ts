@@ -42,6 +42,15 @@ export class UsuarioRestService {
     );
   }
 
+  crear(usuario: any): Observable<any>{
+    const urlCrear = this.url;
+    return this._httpClient
+    .post(
+      urlCrear,
+      usuario
+    );
+  }
+
 
 
 }
