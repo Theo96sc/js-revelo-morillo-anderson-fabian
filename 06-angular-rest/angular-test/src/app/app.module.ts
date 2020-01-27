@@ -20,6 +20,7 @@ import { RutaGestionLibrosComponent } from './rutas/ruta-gestion-libros/ruta-ges
 import { RutaCrearLibroComponent } from './rutas/ruta-crear-libro/ruta-crear-libro.component';
 import { RutaEditarLibroComponent } from './rutas/ruta-editar-libro/ruta-editar-libro.component';
 import { RutaBuscarLibroComponent } from './rutas/ruta-buscar-libro/ruta-buscar-libro.component';
+import { LibroRestService } from './Servicios/libro-rest.service';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { RutaBuscarLibroComponent } from './rutas/ruta-buscar-libro/ruta-buscar-
     ModalEditarUsuarioComponent
   ],
   providers: [
-    UsuarioRestService
+    UsuarioRestService,
+    LibroRestService
   ],
   bootstrap: [AppComponent]
 })
