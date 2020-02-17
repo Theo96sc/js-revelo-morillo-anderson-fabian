@@ -18,7 +18,7 @@ module.exports = {
     subtotal: {
       type: 'number'
     },
-    idDetalleCarrito: {
+    idCabeceraCarrito: {
       model: 'cabeceraCarrito',
       required: false
     },

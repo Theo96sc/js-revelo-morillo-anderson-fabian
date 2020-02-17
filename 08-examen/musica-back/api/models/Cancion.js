@@ -8,11 +8,14 @@
 module.exports = {
 
   attributes: {
-    nombre: {
+    titulo: {
       type: 'string'
     },
-    formato: {
-      type: 'string'
+    precio: {
+      type: 'number'
+    },
+    genero: {
+      type:'string'
     },
     album: {
       type: 'string'

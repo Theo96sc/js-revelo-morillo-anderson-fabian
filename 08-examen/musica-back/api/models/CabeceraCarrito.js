@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
 
     estado: {
-      type: 'boolean'
+      type: 'string'
     },
     fecha: {
       type: 'string'
@@ -27,7 +27,7 @@ module.exports = {
     },
     detallesCarrito: {
       collection: 'detalleCarrito',
-      via: 'idDetalleCarrito'
+      via: 'idCabeceraCarrito'
     }
 
   },
