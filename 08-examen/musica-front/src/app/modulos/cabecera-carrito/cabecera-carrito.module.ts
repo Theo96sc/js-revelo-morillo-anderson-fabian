@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AreasensorRoutingModule } from './areasensor-routing.module';
+import { CabeceraCarritoRoutingModule } from './cabecera-carrito-routing.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    AreasensorRoutingModule
+    CabeceraCarritoRoutingModule
   ]
 })
-export class AreasensorModule { }
+export class CabeceraCarritoModule { }

@@ -1,0 +1,32 @@
+<p>ruta-listar-autor works!</p>
+
+<h1>bIEN VALIDO VERGA </h1>
+<p-button label="Click" (onClick)="editar($event)"></p-button>
+<p-table [value]="autores">
+  <ng-template pTemplate="header">
+    <tr >
+      <th *ngFor="let col of columnas">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-autor>
+    <tr>
+      <td *ngFor="let col of columnas"
+      >
+
+        <div *ngIf="col.field !='id'">
+          {{autor[col.field]}}
+        </div>
+        <div *ngIf="col.field == 'id'">
+          <p-button label="EDITAR" icon="pi pi-check" iconPos="left"
+          (click)="abrirModalCrearEditar(autor)" ></p-button>
+
+         <p-button label="ELIMINAR" (click)="eliminar(autor)"></p-button>
+        </div>
+
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

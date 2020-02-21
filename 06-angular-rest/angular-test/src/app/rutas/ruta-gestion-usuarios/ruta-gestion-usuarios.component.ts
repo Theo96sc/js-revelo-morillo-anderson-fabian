@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 import {FILAS} from '../../constantes/numero-filas-por-tabla';
 import {MatDialog} from '@angular/material/dialog';
 import {ModalEditarUsuarioComponent} from '../../modales/modal-editar-usuario/modal-editar-usuario.component';
@@ -73,7 +73,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
           console.log('datos', datos);
 
           if (datos) {
-            this.editarUsuarioHTTP(usuario.id, datos)
+            this.editarUsuarioHTTP(usuario.id, datos);
           } else {
 
           }
@@ -86,7 +86,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   editarUsuarioHTTP(id: number, datos) {
     const usuarioEditado$ = this._usuarioRestService
-      .editar(id, datos)
+      .editar(id, datos);
 
     usuarioEditado$
       .subscribe(
@@ -107,7 +107,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
         (error) => {
           console.log(error);
         }
-      )
+      );
 
   }
 
@@ -119,7 +119,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
     eliminar$
       .subscribe(
         (usuarioEliminado) => {
-          console.log(usuarioEliminado)
+          console.log(usuarioEliminado);
 
           const indice = this.usuarios
             .findIndex(
@@ -130,9 +130,9 @@ export class RutaGestionUsuariosComponent implements OnInit {
           this.usuarios.splice(indice, 1);
         },
         (error) => {
+
           console.error(error);
-        }
-      )
+        });
     console.log('eliminando', usuario);
   }
 
@@ -148,7 +148,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
         (error) => {
           console.log(error);
         }
-      )
+      );
   }
 
   usuarioFiltrado() {
@@ -176,7 +176,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
         (error) => {
           console.error('error', error);
         }
-      )
+      );
   }
 
   crear(usuario: any) {
@@ -205,7 +205,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
         (error) => {
           console.error('error', error);
         }
-      )
+      );
 
   }
 

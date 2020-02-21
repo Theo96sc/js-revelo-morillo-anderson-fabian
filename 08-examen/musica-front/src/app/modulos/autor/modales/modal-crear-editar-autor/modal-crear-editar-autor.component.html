@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <form #formularioEditar="ngForm">
+    <div>
+
+
+      <label for="nombreId">Nombre</label>
+      <input id="nombreId"
+             type="text"
+             name="nombre"
+             [(ngModel)]="nombre">
+    </div>
+
+    <div>
+      <label for="apellidoId">Apellido</label>
+      <input id="apellidoId"
+             type="text"
+             name="apellido"
+             [(ngModel)]="apellido">
+    </div>
+
+    <div>
+      <label for="fechaNacimientoId">Fecha Nacimiento</label>
+      <input id="fechaNacimientoId"
+             type="text"
+             name="text"
+             [(ngModel)]="fechaNacimiento">
+    </div>
+
+    <div>
+      <label for="generoId"> Género</label>
+      <input id="generoId"
+             type="text"
+             name="genero"
+             [(ngModel)]="genero">
+    </div>
+    <div>
+      <label for="nacionalidadId"> Nacionalidad</label>
+      <input id="nacionalidadId"
+             type="text"
+             name="nacionalidad"
+             [(ngModel)]="nacionalidad">
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <p-button label="Cancelar" styleClass="ui-button-secondary" (onClick)="cancelar()"></p-button>
+  <p-button label="Aceptar" styleClass="ui-button-success" (onClick)="aceptar()"></p-button>
+</div>
+
+

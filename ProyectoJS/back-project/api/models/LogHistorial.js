@@ -12,8 +12,11 @@ module.exports = {
     fecha: {
       type: 'string'
     },
-    accion: {
+    hora: {
       type: 'string'
+    },
+    sensor: {
+      type: 'number'
     },
     idUsuarioAreaSensor: {
       model: 'usuarioAreaSensor',

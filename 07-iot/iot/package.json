@@ -9,11 +9,16 @@
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
     "axios": "^0.19.2",
+    "express": "^4.17.1",
     "grunt": "1.0.4",
+    "johnny-five": "^1.4.0",
+    "moment": "^2.24.0",
     "sails": "^1.2.3",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
-    "sails-hook-sockets": "^2.0.0"
+    "sails-hook-sockets": "^2.0.0",
+    "serialport": "^8.0.7",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "eslint": "5.16.0"

@@ -1,0 +1,34 @@
+<h1>Historial Sensor</h1>
+
+<h2>{{alerta}}</h2>
+
+<button (click)="apagar()">Apagar Alarma</button>
+
+<p-table [value]="logFiltrado()"
+         [paginator]="true"
+         [rows]="FILAS">
+  <ng-template pTemplate="caption">
+    List of Users
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Sensor</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+       </tr>
+     </ng-template>
+
+  <ng-template pTemplate="body" let-historial>
+    <tr>
+      <td>{{historial.sensor}}</td>
+      <td>{{historial.fecha}}</td>
+      <td>{{historial.hora}}</td>
+
+    </tr>
+  </ng-template>
+
+</p-table>
+
+<form class="example-form">
+
+</form>

@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
     nombre:{
-      type: 'string'
+      type: 'number'
     },
     descripcion: {
       type: 'string'
