@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LogHistorialRestService} from '../../../Servicios/LogHistorial.rest.service';
 import {WebsocketService} from '../../../Servicios/websocket.service';
 import {AreaSensoresRestService} from '../../../Servicios/areaSensores.rest.service';
@@ -11,10 +11,8 @@ import {AreaSensoresRestService} from '../../../Servicios/areaSensores.rest.serv
 export class ListarAreaSensorComponent implements OnInit {
 
 
-
   areaSensores = [];
   FILAS = 3;
-
 
 
   constructor(private readonly _areaSensorRestService: AreaSensoresRestService,
@@ -24,13 +22,16 @@ export class ListarAreaSensorComponent implements OnInit {
 
   ngOnInit() {
 
-
-this.listarSensores();
-this.traerDatoEstadoPuerta();
-
+    this._socket.listen('ingreso').subscribe(
+      (data) => {
+        console.log('Loco estas poniendo cero', data);
+        this.listarSensores();
+      }
+    );
+    this.listarSensores();
   }
 
-  listarSensores(){
+  listarSensores() {
 
 
     const urlLogHistorial$ = this._areaSensorRestService.buscar('');
@@ -41,8 +42,8 @@ this.traerDatoEstadoPuerta();
       },
       (err) => {
         console.log({
-          error : err,
-          mensaje : 'Error consutando LogHistorial'
+          error: err,
+          mensaje: 'Error consutando LogHistorial'
         });
       }
     );
@@ -53,26 +54,4 @@ this.traerDatoEstadoPuerta();
   AreaSensorFiltrado() {
     return this.areaSensores;
   }
-
-  apagar() {
-    console.log("Apgando");
-    this._socket.emit('apagar','Apagando alarma')
-  }
-
-  traerDatoEstadoPuerta() {
-
-   let hubocambio = false;
-   const respuetaSocket$=  this._socket.listen("test event");
-
-   if(respuetaSocket$){
-     console.log("se prendio");
-     hubocambio = true
-   }else{
-     console.log("Seapago");
-     hubocambio = false;
-   }
-    return hubocambio;
-  }
-
-
 }

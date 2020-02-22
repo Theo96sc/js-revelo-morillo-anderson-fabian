@@ -48,8 +48,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 
-server.listen(3000, ()=> {
-  console.log("Servidor escuchando en 3000");
+server.listen(3000, () => {
+  console.log('Servidor escuchando en 3000');
 });
 //
 // function onData(dato) {
@@ -72,80 +72,73 @@ server.listen(3000, ()=> {
 var jf = require('johnny-five');
 var circuito = jf.Board();
 
-var realizarCambios = false;
-
 configuracionButton = {
   pin: 2,
   isPullup: true
 };
 
-var puertaCerrada = 1;
+circuito.on('ready', main);
 
-circuito.on('ready', enviarDatos);
+var puertaCerrada = true;
 
-function enviarDatos() {
+function main() {
+
   var button = new jf.Button(configuracionButton);
   var alarma = new jf.Led(12);
-
+  var led = new jf.Led(13);
 
   io.on('connection', (socket) => {
     console.log('Alguien se conecto');
     //io.sockets.emit('test event', 'hola');
-    socket.on('apagar', (msg)=>{
+    socket.on('apagar', (msg) => {
       alarma.off();
-      console.log('mensajito', msg);
+      console.log('mensajitoDelFront', msg);
       io.sockets.emit('test event', 'Monitoreo');
-      realizarCambios = true;
     });
-
-
   });
 
-  //alarma.off();
-
-  var led = new jf.Led(13);
   button.on('down', function (value) {
     led.on();
-    puertaCerrada = 1;
-    // io.sockets.emit('test event', 'hola');
+    puertaCerrada = true;
+    // console.log('down', puertaCerrada);
   });
 
   button.on('up', function () {
     led.off();
     alarma.on();
-    puertaCerrada = 0;
+    puertaCerrada = false;
+    //console.log('up', puertaCerrada);
     io.sockets.emit('test event', 'alerta');
   });
-  recibirInformacion(puertaCerrada);
+ // recibirInformacion(puertaCerrada);
 }
 
-function recibirInformacion(valor) {
-  valor = puertaCerrada;
-   // setTimeout(recibirInformacion, 1000);
-  console.log(valor);
-  return valor;
+/////////// FIN DE MAIN
+
+
+function recibirEstadoPuerta() {
+  return puertaCerrada;
+   //setTimeout(recibirInformacion, 1000);
+  //console.log(valor);
 }
+
 
 circuito.on('error', (error) => {
   console.log(error);
 });
 
-const moduloRaspberry = {
+const moduloArduino = {
   // calcularProximidad: function () {
   //   return Math.random() * (10 - 0) + 0;
   // }
 
-  calcularProximidad: function (puertaCerrada) {
-
+  armarObjetoHistorial: function () {
     return {
       fecha: moment().format('YYYY-MM-DD'),
       hora: moment().format('LTS'),
       sensor: configuracionButton.pin,
     };
-
   }
-
-
 };
 
 
@@ -154,34 +147,26 @@ module.exports.bootstrap = async function () {
   setInterval( // Ejecutar lo mismo cada dos segundos
     async () => {
 
-      var compuerta = recibirInformacion(1);
-      //   console.log('datos', compuerta);
-      const historial = moduloRaspberry.calcularProximidad(compuerta);
-      //  const historial = moduloRaspberry.calcularProximidad();
-      console.log(historial);
-      if (compuerta === 0) {
+      var estadoPuerta = recibirEstadoPuerta();
 
+      const historial = moduloArduino.armarObjetoHistorial();
+
+      if (estadoPuerta === false) {
+        // console.log('lo que se va a guardar: ', historial);
         const respuestaServidor = await axios
-          .post('http://localhost:1338/loghistorial',
-            historial);
-            io.sockets.emit('ingreso', historial);
+           .post('http://localhost:1338/loghistorial',
+             historial);
+        const respuestaPutAreaSensor =  await axios
+          .put(url+'areaSensor/1',{
+            estado : 0
+          });
 
-        console.log('respuesta Servidor', respuestaServidor);
+        io.sockets.emit('ingreso', 'Han hecho un ingreso y put');
 
+        // console.log('Xvideos', respuestaPutAreaSensor);
       }
-
-      // if (realizarCambios){
-      //   const updateSensor =  await axios
-      //   .put( url +'areaSensor/1', {
-      //   estado: compuerta
-      //   }, );
-      //  // console.log('toca updater de', compuerta);
-      //   realizarCambios = false;
-      // }
-
-
     },
-    1000 // cada 1 segundos
+    2000 // cada 1 segundos
   );
 };
 // 1337 : iot

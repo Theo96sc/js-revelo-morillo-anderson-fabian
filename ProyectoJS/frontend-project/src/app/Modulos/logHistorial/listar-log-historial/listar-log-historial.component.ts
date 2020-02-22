@@ -12,7 +12,7 @@ export class ListarLogHistorialComponent implements OnInit {
   busquedaHistorial: any;
 
   historiales = [];
-  FILAS = 3;
+  FILAS = 10;
   sensorFiltrado = '';
   fechaFiltrado = '';
   horaFiltrado = '';
@@ -44,6 +44,11 @@ export class ListarLogHistorialComponent implements OnInit {
         (data)=>{
          // this.alerta = data.toString();
           console.log('EUU', data);
+          // this._socket.emit('apagar','Apagando alarma');
+        /*  const respuestaPut =this._areaSensorRestService.editar(1,{
+            estado : 0
+          });
+          console.log(respuestaPut); */
           this.listarHistorial();
         }
       );
@@ -76,19 +81,22 @@ export class ListarLogHistorialComponent implements OnInit {
 
   }
 
-  buscarHistorialPorNombre() {
 
-  }
 
   logFiltrado() {
 return this.historiales;
   }
 
   apagar() {
-    console.log("Apagando");
-    this._socket.emit('apagar','Apagando alarma');
+    this._socket.emit('apagar','Apagate');
     this._areaSensorRestService.editar(1,{
-      estado: 0
-    })
+      estado: 1
+    }).subscribe(
+      ()=>{
+        console.log('ya se ha editado desde el friont');
+      }
+    )
+    // console.log("Apagando");
+
   }
 }
